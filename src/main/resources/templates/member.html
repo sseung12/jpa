@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            .main_wrapper{
+
+            }
+
+    </style>
+</head>
+<body>
+
+
+    <div class="main_wrapper">
+
+        <form action="/member" method="post">
+            <div class="input_wrapper">
+                <label for="username"></label>
+                <input id="username" type="text" name="username">
+
+            </div>
+            <div class="input_wrapper">
+                <label for="age"></label>
+                <input id="age" type="number" name="age">
+
+            </div>
+            <div class="input_wrapper">
+                <input type="submit" value="가입">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
