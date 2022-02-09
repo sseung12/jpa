@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Entity
@@ -15,12 +16,20 @@ public class Member {
 
     @Id
     @GeneratedValue
+    @Column(name="member_id")
     private Long Id;
 
-    @Column(name="name" ,nullable = false,length = 10)
-    private String username;
+    private String name;
 
-    private Integer age;
+    @Embedded
+    private Address address;
+
+    @OneToMany(mappedBy = "member")
+    private List<Order> orders = new ArrayList<>();
+
+
+
+
 
 
 
