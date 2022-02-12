@@ -9,6 +9,8 @@ import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -36,6 +38,7 @@ public class OrderService {
         //주문 생성
         Order order =Order.createOrder(member,delivery,orderItem);
 
+
         //주문 저장
         orderRepository.save(order);
 
@@ -44,7 +47,14 @@ public class OrderService {
     }
 
     //취소
-
+    @Transactional
+    public void cancelOrder(Long orderId) {
+        Order order = orderRepository.findOne(orderId);
+        order.cancel();
+    }
 
     //검색
+//    public List<Order> findOrders(OrderSeach orderSeach) {
+//        return orderRepository.findAll(orderSeach);
+//    }
 }

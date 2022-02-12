@@ -25,10 +25,19 @@ public class OrderRepository {
 
 
 
-    public List<Order> findAll() {
-        return em.createQuery("select o from Order o")
-                .getResultList();
+    public List<Order> findAllByString(OrderSearch orderSearch) {
+        return em.createQuery("select o from Order o join o.member m"
+                        +"where o.member =:status"+
+                        "and m.name like :name",Order.class)
+                .setParameter("status",orderSearch.getOrderStatus())
+                .setParameter("name",orderSearch.getMemberName())
+                .setMaxResults(1000)
+        .getResultList();
     }
 
+    //JPA Criteria
+    public List<Order> findAllByCriteria(OrderSearch orderSearch) {
+
+    }
 
 }

@@ -2,6 +2,7 @@ package hello.boot.jpa.domain;
 
 import hello.boot.jpa.exception.NoEnoughStockException;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.util.List;
 @DiscriminatorColumn(name="dtype")
 @Getter
 @Setter
+@NoArgsConstructor
 public abstract class Item {
 
     @Id

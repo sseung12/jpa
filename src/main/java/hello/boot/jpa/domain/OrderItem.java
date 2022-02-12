@@ -1,6 +1,8 @@
 package hello.boot.jpa.domain;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -9,6 +11,7 @@ import javax.persistence.*;
 @Table(name="order_item")
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class OrderItem {
 
     @Id
@@ -27,6 +30,7 @@ public class OrderItem {
 
     private int orderPrice;
     private int count;
+
 
     //생성메서드
     public static OrderItem createOrderItem(Item item,int orderPrice, int count) {
