@@ -4,6 +4,7 @@ import hello.boot.jpa.domain.*;
 import hello.boot.jpa.repository.ItemRepository;
 import hello.boot.jpa.repository.MemberRepository;
 import hello.boot.jpa.repository.OrderRepository;
+import hello.boot.jpa.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
@@ -54,7 +55,7 @@ public class OrderService {
     }
 
     //검색
-//    public List<Order> findOrders(OrderSeach orderSeach) {
-//        return orderRepository.findAll(orderSeach);
-//    }
+    public List<Order> findOrders(OrderSearch orderSeach) {
+        return orderRepository.findAllByCriteria(orderSeach);
+    }
 }
