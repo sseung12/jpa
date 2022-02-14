@@ -30,10 +30,18 @@ public class MemberController {
         return "members/createMemberForm";
     }
 
+    @PostMapping("/members/new")
+    public String createMember(@ModelAttribute Member member) {
+        memberService.join(member);
+        return "redirect:/members";
+    }
+
+
     @GetMapping("/members")
     public String list(Model model) {
+
         List<Member> members = memberService.findMembers();
-        model.addAttribute("members",members);
+        model.addAttribute("members", members);
         return "members/memberList";
 
     }
