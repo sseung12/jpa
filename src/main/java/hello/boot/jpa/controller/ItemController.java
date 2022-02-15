@@ -1,19 +1,20 @@
 package hello.boot.jpa.controller;
 
-import hello.boot.jpa.domain.Item;
+import hello.boot.jpa.domain.item.Item;
 import hello.boot.jpa.domain.item.Book;
 import hello.boot.jpa.service.ItemService;
 import hello.boot.jpa.web.BookForm;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class ItemController {
@@ -36,13 +37,16 @@ public class ItemController {
         book.setAuthor(form.getAuthor());
         book.setIsbn(form.getIsbn());
 
+        log.info("bookForm name ={}",form.getName());
+        log.info("book name ={}",book.getName());
         itemService.saveItem(book);
-        return "redirect:/items";
+        return "redirect:/";
     }
 
     @GetMapping("/items")
     public String list(Model model) {
-        List<Item> items = itemService.findAll();
+        List<Item> items = itemService.findItems();
+        model.addAttribute("items",items);
         return "items/itemList";
     }
 

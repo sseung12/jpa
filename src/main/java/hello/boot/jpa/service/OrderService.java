@@ -1,12 +1,12 @@
 package hello.boot.jpa.service;
 
 import hello.boot.jpa.domain.*;
+import hello.boot.jpa.domain.item.Item;
 import hello.boot.jpa.repository.ItemRepository;
 import hello.boot.jpa.repository.MemberRepository;
 import hello.boot.jpa.repository.OrderRepository;
 import hello.boot.jpa.repository.OrderSearch;
 import lombok.RequiredArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,7 +31,7 @@ public class OrderService {
         //배송정보 생성
         Delivery delivery = new Delivery();
         delivery.setAddress(member.getAddress());
-
+        delivery.setStatus(DeliveryStatus.READY);
         //주문상품 생성
 
         OrderItem orderItem = OrderItem.createOrderItem(item,item.getPrice(),count);
@@ -55,7 +55,8 @@ public class OrderService {
     }
 
     //검색
-    public List<Order> findOrders(OrderSearch orderSeach) {
-        return orderRepository.findAllByCriteria(orderSeach);
+    public List<Order> findOrders(OrderSearch orderSearch) {
+
+        return orderRepository.findAllByString(orderSearch);
     }
 }

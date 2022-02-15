@@ -1,6 +1,7 @@
 package hello.boot.jpa.domain;
 
 
+import hello.boot.jpa.domain.item.Item;
 import lombok.Getter;
 import lombok.Setter;
 

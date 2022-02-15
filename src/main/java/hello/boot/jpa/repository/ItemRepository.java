@@ -1,7 +1,7 @@
 package hello.boot.jpa.repository;
 
 
-import hello.boot.jpa.domain.Item;
+import hello.boot.jpa.domain.item.Item;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 

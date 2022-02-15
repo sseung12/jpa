@@ -1,8 +1,7 @@
 package hello.boot.jpa.service;
 
-import hello.boot.jpa.domain.Item;
+import hello.boot.jpa.domain.item.Item;
 import hello.boot.jpa.repository.ItemRepository;
-import hello.boot.jpa.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +25,7 @@ public class ItemService {
         return  itemRepository.findOne(id);
     }
 
-    public List<Item> findAll() {
+    public List<Item> findItems() {
         return  itemRepository.findAll();
     }
 

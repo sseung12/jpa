@@ -1,5 +1,6 @@
-package hello.boot.jpa.domain;
+package hello.boot.jpa.domain.item;
 
+import hello.boot.jpa.domain.Category;
 import hello.boot.jpa.exception.NoEnoughStockException;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

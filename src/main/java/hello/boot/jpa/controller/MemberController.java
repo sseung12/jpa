@@ -33,6 +33,9 @@ public class MemberController {
     @PostMapping("/members/new")
     public String createMember(@ModelAttribute Member member) {
         memberService.join(member);
+
+
+
         return "redirect:/members";
     }
 
