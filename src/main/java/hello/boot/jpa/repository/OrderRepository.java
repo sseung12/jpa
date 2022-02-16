@@ -3,6 +3,8 @@ package hello.boot.jpa.repository;
 
 import hello.boot.jpa.domain.Member;
 import hello.boot.jpa.domain.Order;
+import hello.boot.jpa.domain.QMember;
+import hello.boot.jpa.domain.QOrder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
@@ -106,6 +108,13 @@ public class OrderRepository {
                 return query.getResultList();
             }
 
+
+//    public List<Order> findAll(OrderSearch orderSearch) {
+//        QOrder order = QOrder.order;
+//        QMember member = QMember.member;
+//
+//
+//    }
 
     public List<Order> findAllWithTeam() {
 
